@@ -33,9 +33,16 @@ except FileNotFoundError as notfound:
 
 #=================================================================================================
 
+#執行的報表的git指令
+command = [ "pwd" ]
+#透過Python執行命令
+proc = subprocess.Popen(command ,shell=False, stdout=subprocess.PIPE)
+#取得標準輸出，存入變數中。
+output = proc.stdout.read()
+
 subject = u"主題{}".format(today)
 
-output = "郵件的內容"
+output = "郵件內容，工作目錄是在{}".format(output)
 
 #=================================================================================================
 
