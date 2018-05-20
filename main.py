@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from os import chdir
-from sys import version_info
+from sys import version_info, argv
 #正規式re模組
 import subprocess
 import re
@@ -15,6 +15,11 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.header import Header
+
+#參數
+arguments_list = argv[1:]
+number_of_arguments = len(arguments_list)
+
 #日期
 from datetime import date, timedelta
 
@@ -45,6 +50,17 @@ subject = u"主題{}".format(today)
 output = "郵件內容，工作目錄是在{}".format(output)
 
 #=================================================================================================
+
+#=====單純印出內容=======
+if(number_of_arguments > 0):
+    parameter = arguments_list[0]
+    if(parameter=="dry-run"):
+        print("===郵件主題===")
+        print(subject)
+        print("=====內容=====")
+        print(output)
+        quit();
+
 
 #========環境設定============
 #寄件者
