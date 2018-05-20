@@ -37,6 +37,8 @@ mail_password = "admin"
 <pre>python main.py</pre>
 或python3
 <pre>pyton3 main.py</pre>
+發送的內容顯示於營幕上，不真的送出
+<pre> ./main.py dry-run</pre>
 
 #### 五、變更main.py的內容
 改寫main.py中的
