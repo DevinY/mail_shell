@@ -47,7 +47,10 @@ output = proc.stdout.read()
 
 subject = u"主題{}".format(today)
 
-output = "郵件內容，工作目錄是在{}".format(output)
+output = "郵件內容，工作目錄是在\n{}".format(output)
+
+#郵件為HTML格式，這裡將斷行轉br
+output = re.sub("\n", "<br/>",output)
 
 #=================================================================================================
 
